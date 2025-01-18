@@ -1,2 +1,2 @@
-// import './patrones/01-creacionales/builder';
-import './patrones/01-creacionales/singleton';
+import './patrones/01-creacionales/builder';
+// import './patrones/01-creacionales/singleton';

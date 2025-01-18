@@ -102,7 +102,7 @@ class OrderBuilderImpl implements OrderBuilder{
 
 // Uso
 class BuilderTest{
-    static test(){
+    static execute(){
         const order1 = new OrderBuilderImpl()
         .setCustomerName('María José')
         .setAddress('Alameda 123')
@@ -127,6 +127,6 @@ class BuilderTest{
     }
 }
 
-BuilderTest.test();
+BuilderTest.execute();
 
 
