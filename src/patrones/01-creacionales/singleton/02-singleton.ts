@@ -63,6 +63,7 @@ class ApiVersionSingleton {
     }
 }
 
+// Uso
 class SingletonTest {
     
     static execute() {
