@@ -1,9 +1,6 @@
 /**
- * Builder es un patrón de diseño creacional que nos permite construir objetos complejos paso a paso.
+ * Builder es un patrón de diseño creacional que nos permite construir objetos complejos paso a paso y con diferentes configuraciones.
  * 
- * Problema:
- * Tenemos un E-commerce y queremos implementar un sistema de pedidos. Cada pedido puede tener diferentes productos, 
- * estos productos no siempre tienen la misma configuración ya que por ejemplo algunos pueden tener descuentos, opciones para envolver para regalo, etc.
  */
 
 enum shippingType{
@@ -16,12 +13,13 @@ enum PaymentMethod {
     TRANSFER = 'Transferencia'
 }
 
-interface ProductItem{
-    name: string;
-    price: number;
-    quantity: number;
+class ProductItem{
+    constructor(
+        public name: string,
+        public price: number,
+        public quantity: number
+    ){}
 }
-
 // Clase principal
 class Order{
     customerName: string = '';
@@ -52,7 +50,7 @@ interface OrderBuilder{
     setShippingMethod(method: string): OrderBuilder;
     setPaymentMethod(method: PaymentMethod): OrderBuilder;
     setDiscountCode(code: string): OrderBuilder;
-    setGiftOption(isAGift: boolean): OrderBuilder;
+    setGiftOption(): OrderBuilder;
     build(): Order;
 }
 
@@ -71,7 +69,7 @@ class OrderBuilderImpl implements OrderBuilder{
     }
 
     addProduct(product: ProductItem): OrderBuilder {
-        this.order.products.push(product);
+        this.order.products.push(new ProductItem(product.name, product.price, product.quantity));
         return this;
     }
 
@@ -90,8 +88,8 @@ class OrderBuilderImpl implements OrderBuilder{
         return this;
     }
 
-    setGiftOption(isAGift: boolean): OrderBuilder {
-        this.order.isAGift = isAGift;
+    setGiftOption(): OrderBuilder {
+        this.order.isAGift = true;
         return this;
     }
 
@@ -119,7 +117,7 @@ class BuilderTest{
         .addProduct({name: 'Teclado', price: 109, quantity: 1})
         .setShippingMethod(shippingType.STANDARD)
         .setPaymentMethod(PaymentMethod.TRANSFER)
-        .setGiftOption(true)
+        .setGiftOption()
         .build();
 
         console.log(order1.toString());
