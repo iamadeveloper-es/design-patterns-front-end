@@ -1,10 +1,6 @@
 /**
  * Singleton es un patrón de diseño creacional que garantiza que una clase tenga una única instancia y proporciona un punto de acceso global a ella.
  * 
- * Problema: 
- * En una aplicación que consume múltiples APIs, es necesario gestionar diferentes versiones de las APIs dependiendo del entorno (desarrollo, producción, etc.).
- * Sin un patrón Singleton, podríamos terminar creando múltiples instancias de la clase que maneja las versiones de las APIs, lo que podría llevar a inconsistencias y errores.
- * 
  * Resultado:
  * La clase ApiVersionSingleton asegura que solo haya una instancia que maneje las versiones de las APIs. Dependiendo del entorno proporcionado, 
  * la instancia única de ApiVersionSingleton configurará las versiones de las APIs adecuadamente y proporcionará un punto de acceso global para obtener estas versiones.
@@ -28,35 +24,39 @@ const apiVersion = {
     
 }
 
-// Configuración de entornos
+
+// simulación de variables de entorno de nuestra aplicación
 const environmentConfig = {
     dev: {
+        name: 'dev',
         basePath: "https://api-dev.com",
     },
     prod: {
+        name: 'prod',
         basePath: "https://api-prod.com",
     }
 }
 
 // Al crear nuestra aplicación se configurará el entorno
-const environment = environmentConfig.dev;
+const environment = environmentConfig.prod;
+
+
+// Simulación de la llamada que realizaremos al servicio que nos devolverá el versionado
+type EnvironmentName = 'dev' | 'prod';
+
+const fetchApiVersion = (environmentName: string) => apiVersion[environmentName as EnvironmentName];
 
 class ApiVersionSingleton {
     private static instance: ApiVersionSingleton;
     private static apiVersion: {} = {};
 
     static getInstance(environment: object) {
-        if (!ApiVersionSingleton.instance) {
-            ApiVersionSingleton.instance = new ApiVersionSingleton();
-            if(environment === environmentConfig.dev){
-                ApiVersionSingleton.apiVersion = apiVersion.dev;
+            if (!ApiVersionSingleton.instance) {
+                ApiVersionSingleton.instance = new ApiVersionSingleton();
+                ApiVersionSingleton.apiVersion = environment;
             }
-            else{
-                ApiVersionSingleton.apiVersion = apiVersion.prod;
-            }
+            return ApiVersionSingleton.instance;
         }
-        return ApiVersionSingleton.instance;
-    }
 
     public getApiVersion(): object {
         return ApiVersionSingleton.apiVersion;
@@ -66,11 +66,11 @@ class ApiVersionSingleton {
 class SingletonTest {
     
     static execute() {
-        const apiVersion = ApiVersionSingleton.getInstance(environment);
+        const apiVersion = ApiVersionSingleton.getInstance(fetchApiVersion(environment.name));
 
         console.log(apiVersion.getApiVersion());
 
-        const apiVersion2 = ApiVersionSingleton.getInstance(environment);
+        const apiVersion2 = ApiVersionSingleton.getInstance(fetchApiVersion(environment.name));
 
         console.log('Misma instancia ', apiVersion === apiVersion2);
     }
