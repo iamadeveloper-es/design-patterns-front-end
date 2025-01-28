@@ -2,6 +2,9 @@
   "name": "design-patterns-front-end",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": ">=14.18+ >=16"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
