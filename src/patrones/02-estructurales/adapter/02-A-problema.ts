@@ -57,7 +57,7 @@ class UserService{
     }
 }
 
-class Test{
+class ClientTest{
 
     static execute(){
         ProductService.getpPoducts()
@@ -72,4 +72,4 @@ class Test{
     }
 }
 
-Test.execute()
+ClientTest.execute()

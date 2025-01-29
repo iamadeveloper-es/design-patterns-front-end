@@ -77,7 +77,7 @@ class ProcessPayment{
     }
 }
 
-class Test{
+class ClientTest{
 
     static execute(){
 
@@ -93,4 +93,4 @@ class Test{
     }
 }
 
-Test.execute()
+ClientTest.execute()
