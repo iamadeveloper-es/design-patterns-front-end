@@ -65,7 +65,7 @@ class Order{
 }
 
 // Uso
-class Test{
+class ClientTest{
     static execute(){
         const order1 = new Order('María José', 'Alameda 123', [{name: 'Micrófono', price: 129.99, quantity: 2}], shippingType.EXPRESS, PaymentMethod.CARD, '10OFF', false);
 
@@ -76,4 +76,4 @@ class Test{
     }
 }
 
-Test.execute();
+ClientTest.execute();

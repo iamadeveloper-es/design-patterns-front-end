@@ -52,7 +52,7 @@ class TaskCard{
 
 
 // Uso
-class Test{
+class ClientTest{
 
     static execute(){
         const taskCard = new TaskCard(
@@ -79,4 +79,4 @@ class Test{
     }
 }
 
-Test.execute()
+ClientTest.execute()

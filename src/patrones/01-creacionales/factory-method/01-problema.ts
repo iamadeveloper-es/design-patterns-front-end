@@ -62,7 +62,7 @@ class SuperAdmin implements User{
     
 }
 
-class Test{
+class ClientTest{
     static execute(name: string, email: string, role: Role){
         let user;
 
@@ -80,5 +80,5 @@ class Test{
     }
 }
 
-Test.execute('Daniel', 'test@gmail.com', Role.Admin)
+ClientTest.execute('Daniel', 'test@gmail.com', Role.Admin)
 

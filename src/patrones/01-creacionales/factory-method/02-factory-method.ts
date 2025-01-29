@@ -76,7 +76,7 @@ class UserFactory {
 }
 
 // Uso
-class Test{
+class ClientTest{
     static execute(name: string, email: string, role: Role){
         const userData = {
             name,
@@ -89,5 +89,5 @@ class Test{
     }
 }
 
-Test.execute('Daniel', 'test@gmail.com', Role.Admin)
-Test.execute('Daniel', 'test@gmail.com', Role.SuperAdmin)
+ClientTest.execute('Daniel', 'test@gmail.com', Role.Admin)
+ClientTest.execute('Daniel', 'test@gmail.com', Role.SuperAdmin)
