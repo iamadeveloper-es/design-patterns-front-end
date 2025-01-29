@@ -6,4 +6,7 @@
 // import './patrones/01-creacionales/singleton/03-singleton';
 
 // import './patrones/01-creacionales/prototype/01-problema';
-import './patrones/01-creacionales/prototype/02-prototype';
+// import './patrones/01-creacionales/prototype/02-prototype';
+
+// import './patrones/01-creacionales/factory-method/01-problema';
+import './patrones/01-creacionales/factory-method/02-factory-method';
