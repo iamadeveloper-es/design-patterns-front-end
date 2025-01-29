@@ -1,4 +1,6 @@
-console.clear()
+/**
+ * 1. Creacionales
+ */
 
 // import './patrones/01-creacionales/builder/01-problema';
 // import './patrones/01-creacionales/builder/02-builder';
@@ -14,4 +16,14 @@ console.clear()
 // import './patrones/01-creacionales/factory-method/02-factory-method';
 
 // import './patrones/01-creacionales/abstract-factory/01-problema';
-import './patrones/01-creacionales/abstract-factory/02-abstract-factory';
+// import './patrones/01-creacionales/abstract-factory/02-abstract-factory';
+
+
+/**
+ * 2. Estructurales
+ */
+
+// import './patrones/02-estructurales/adapter/01-A-problema';
+// import './patrones/02-estructurales/adapter/01-B-adapter';
+// import './patrones/02-estructurales/adapter/02-A-problema';
+// import './patrones/02-estructurales/adapter/02-B-adapter';
