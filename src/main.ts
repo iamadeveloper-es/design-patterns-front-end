@@ -1,3 +1,5 @@
+console.clear()
+
 /**
  * 1. Creacionales
  */
@@ -20,6 +22,9 @@
  */
 
 // import './patrones/02-estructurales/adapter/01-A-problema';
-import './patrones/02-estructurales/adapter/01-B-adapter';
+// import './patrones/02-estructurales/adapter/01-B-adapter';
 // import './patrones/02-estructurales/adapter/02-A-problema';
 // import './patrones/02-estructurales/adapter/02-B-adapter';
+
+// import './patrones/02-estructurales/decorator/01-problema';
+import './patrones/02-estructurales/decorator/02-decorator';
